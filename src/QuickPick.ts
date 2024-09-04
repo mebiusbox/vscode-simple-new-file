@@ -26,7 +26,7 @@ export default class QuickPick {
 
     this.quickPick.onDidHide(() => this.quickPick.dispose());
     this.quickPick.onDidAccept(() => {
-      const selected = this.quickPick.selectedItems[0];
+      const selected = (this.quickPick.activeItems.length > 0) ? this.quickPick.selectedItems[0] : undefined;
 
       // A hack for ignoring duplicate firing of the event when items
       // are changed. Need to investigate whether it's a bug in the code.
